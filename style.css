@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter';
+    background-color: #d3d1cf;
+    color: #110d1f;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 1.5rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 4rem;
+}
+
+.content-valor-comprovantes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 0.5rem;
+    background-color: #0f766e;
+    color: #fff;
+    width: 50%;
+    padding: 2rem 5rem;
+    border-radius: 20px;
+}
+
+/* Responsividade básica para o topo não quebrar em telas pequenas */
+@media (max-width: 768px) {
+
+    .content-valor-comprovantes,
+    .caixa-foto {
+        width: 90%;
+        padding: 2rem;
+    }
+
+    .section-comprovantes {
+        width: 95%;
+    }
+}
+
+.valor-comprovantes {
+    font-size: 30pt;
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.caixa-foto {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 0.5rem;
+    width: 50%;
+    padding: 2.5rem 5rem;
+    border-radius: 20px;
+    border: 4px dashed #c3cfe0;
+    background-color: #f2e8ff;
+    transition: border-color 0.2s ease-in;
+    text-align: center;
+}
+
+.caixa-foto:hover {
+    cursor: pointer;
+    border-color: #0f766e;
+}
+
+.section-comprovantes {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 80%;
+}
+
+.caixa-comprovantes {
+    display: flex;
+    flex-direction: column;
+    height: min-content;
+    gap: 1rem;
+    border-radius: 20px;
+    background-color: #f2e8ff;
+    overflow: hidden;
+    /* Para garantir que o conteúdo arredondado fique bonito */
+}
+
+.header-comprovante {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    padding: 1rem 2rem;
+}
+
+.nav-comprovante {
+    display: flex;
+    justify-content: end;
+    background-color: #d3d1cf;
+    color: #110d1f96;
+    width: auto;
+    padding: 1rem;
+    gap: 2rem;
+    border-radius: 10px;
+}
+
+.options-comprovante {
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.options-comprovante:hover {
+    color: #0f766e;
+}
+
+.produto-comprovante {
+    border-radius: 20px;
+    padding: 1rem;
+    margin: 0 1rem;
+    /* Dá um espacinho nas laterais */
+}
+
+/* MODIFICAÇÃO DE CSS: Lógica da Sanfona */
+/* O Wrapper usa CSS Grid. Quando fechado, a linha tem tamanho 0fr. */
+.produtos-extras-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    /* Começa com altura 0 */
+    opacity: 0;
+    /* Começa invisível */
+    transition: grid-template-rows 0.4s ease-out, opacity 0.4s ease-out;
+    /* Define o tempo e estilo da animação */
+}
+
+/* MODIFICAÇÃO DE CSS: Quando a classe expandido for adicionada pelo JS, ele anima para 1fr */
+.produtos-extras-wrapper.expandido {
+    grid-template-rows: 1fr;
+    /* Expande para o tamanho real do conteúdo */
+    opacity: 1;
+    /* Fica visível */
+}
+
+/* A div de dentro precisa ter overflow: hidden para o conteúdo não vazar enquanto a de fora encolhe */
+.produtos-extras {
+    overflow: hidden;
+}
+
+.caixa-valor-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    padding: 1rem 2rem;
+    color: #110d1f70;
+    border-top: solid 2px #d3d1cf;
+}
+
+.valor-total {
+    background-color: #0f766e;
+    color: #fff;
+    border-radius: 20px;
+    padding: 1rem;
+    font-weight: bold;
+}
+
+.flashed-content {
+    position: fixed;
+    left: 20px;
+    bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.flashed-content h4 {
+    background-color: #1c1d27;
+    color: #fff;
+    box-shadow: 0 12px 20px #1c1d27;
+    padding: 1rem;
+    border-radius: 10px;
+    min-height: 3rem;
+    max-height: auto;
+    min-width: 4rem;
+    max-width: 90vw;
+    animation:
+        flash-in 0.5s ease-out,
+        flash-out 0.5s ease-in 5s forwards;
+}
+
+@keyframes flash-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes flash-out {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(120%);
+    }
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    color: #6362628c;
+    margin: 10% 0 5% 0;
+    padding: 1rem;
+    text-align: center;
+}

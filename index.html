@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <title>GASTO DA FOTO</title>
+</head>
+
+<body>
+    <div class="flashed-box" id="flashed_box">
+
+    </div>
+    <header>
+        <h1>📸 Gasto na Foto</h1>
+        <p>Fotografe o comprovante. A IA anota pra você.</p>
+    </header>
+    <main>
+        <div class="content-valor-comprovantes">
+            <p>Total Gasto</p>
+            <h2 class="valor-comprovantes" id="valor_comprovantes">R$0,00</h2>
+            <P id="quantidade_comprovantes">0 comprovantes lidos</P>
+        </div>
+
+        <form action="">
+            <label class="caixa-foto">
+                🧾 Toque para fotografar o comprovante
+                <input type="file" onchange="loadPhoto()" accept="image/*" class="fotos" id="foto" hidden>
+            </label>
+        </form>
+        <section class="section-comprovantes" id="section_comprovantes">
+
+        </section>
+    </main>
+    <footer>
+        <p class="footer-comprovante">© 2026 | Desenvolvido por Pedro Lucas Da Silva Rosa</p>
+    </footer>
+</body>
+<script src="https://js.puter.com/v2/"></script>
+<script src="script.js"></script>
+
+</html>
