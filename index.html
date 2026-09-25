@@ -1,44 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gasto na Foto | Gestão Inteligente com IA</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <title>GASTO DA FOTO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <div class="flashed-box" id="flashed_box">
+    <div class="flashed-box" id="flashed_box"></div>
 
-    </div>
     <header>
-        <h1>📸 Gasto na Foto</h1>
-        <p>Fotografe o comprovante. A IA anota pra você.</p>
-    </header>
-    <main>
-        <div class="content-valor-comprovantes">
-            <p>Total Gasto</p>
-            <h2 class="valor-comprovantes" id="valor_comprovantes">R$0,00</h2>
-            <P id="quantidade_comprovantes">0 comprovantes lidos</P>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fa-solid fa-receipt"></i>
+                <h1>Gasto na <span>Foto</span></h1>
+            </div>
+            <p class="subtitle">Fotografe o comprovante e a inteligência artificial cuida da gestão para você.</p>
         </div>
+    </header>
 
-        <form action="">
-            <label class="caixa-foto">
-                🧾 Toque para fotografar o comprovante
+    <main>
+        <!-- Dashboard de Totais -->
+        <section class="dashboard-card">
+            <div class="dash-icon">
+                <i class="fa-solid fa-wallet"></i>
+            </div>
+            <div class="dash-info">
+                <span class="dash-title">Total Gasto</span>
+                <h2 class="valor-comprovantes" id="valor_comprovantes">R$ 0,00</h2>
+                <span class="badge" id="quantidade_comprovantes">0 comprovantes lidos</span>
+            </div>
+        </section>
+
+        <!-- Zona de Upload / Foto -->
+        <form id="form_upload">
+            <label class="caixa-foto" id="label_foto">
+                <div class="upload-content" id="upload_content">
+                    <div class="upload-icon-wrapper">
+                        <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                    </div>
+                    <span class="upload-title">Toque para enviar ou fotografar o comprovante</span>
+                    <span class="upload-subtitle">Formatos aceitos: JPG, PNG, WEBP</span>
+                </div>
+                
+                <!-- Estado de Carregamento da IA -->
+                <div class="upload-loading" id="upload_loading" style="display: none;">
+                    <i class="fa-solid fa-circle-notch fa-spin spinner-icon"></i>
+                    <span class="loading-text">Analisando dados do comprovante via IA...</span>
+                </div>
+
                 <input type="file" onchange="loadPhoto()" accept="image/*" class="fotos" id="foto" hidden>
             </label>
         </form>
-        <section class="section-comprovantes" id="section_comprovantes">
 
+        <!-- Seção de Comprovantes Extraídos -->
+        <section class="section-comprovantes" id="section_comprovantes">
+            <!-- Cards de comprovantes gerados via JavaScript -->
         </section>
     </main>
-    <footer>
-        <p class="footer-comprovante">© 2026 | Desenvolvido por Pedro Lucas Da Silva Rosa</p>
-    </footer>
-</body>
-<script src="https://js.puter.com/v2/"></script>
-<script src="script.js"></script>
 
+    <footer>
+        <p>© 2026 | Desenvolvido por <strong>Pedro Lucas Da Silva Rosa</strong></p>
+    </footer>
+
+    <script src="https://js.puter.com/v2/"></script>
+    <script src="script.js"></script>
+</body>
 </html>
