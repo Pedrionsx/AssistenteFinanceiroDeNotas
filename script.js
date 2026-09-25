@@ -4,8 +4,6 @@ const valorComprovantes = document.getElementById('valor_comprovantes')
 const quantidadeComprovante = document.getElementById('quantidade_comprovantes')
 const flashedBox = document.getElementById('flashed_box')
 
-const avisoIA = document.getElementById('aviso-ia')
-
 let comprovantes_loaded = 0
 let valor_total_comprovantes = 0
 
@@ -58,8 +56,6 @@ async function loadPhoto() {
             { "nome": "Nome do produto", "preco": 85.00, "quantidade": 2 }
         ]
     }`, comprovante)
-
-    avisoIA.textContent = ''
 
     console.log(resposta.message.content)
     let dados = JSON.parse(resposta.message.content)
